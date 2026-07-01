@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Accordion</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Arial;
+    background: linear-gradient(to bottom, #1e3c72, #2a5298);
+}
+
+/* контейнер */
+.accordion {
+    width: 300px;
+}
+
+/* каждый блок */
+.item {
+    border: 1px solid #0933ec;
+}
+
+/* скрываем radio */
+input {
+    display: none;
+}
+
+/* заголовок */
+label {
+    display: block;
+    padding: 10px;
+    background: #346eeb;
+    cursor: pointer;
+    font-weight: bold;
+    color: #eff0ed;
+    transition: 0.3s;
+
+    /* Анимация появления */
+    opacity: 0;
+    transform: translateY(-30px);
+    animation: showText 0.8s ease forwards;
+    animation-delay: 0.5s;
+}
+
+/* hover */
+label:hover {
+    background: rgba(5, 243, 124, 0.4);
+}
+
+/* активный заголовок */
+input:checked + label {
+    background: #032e91;
+    color: white;
+}
+
+/* контент */
+.content {
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.3s ease;
+    background: white;
+    padding: 0;
+}
+
+/* открытие */
+input:checked + label + .content {
+    max-height: 300px;
+    padding: 10px;
+}
+
+/* элементы внутри */
+.podmenu {
+    border: 1px solid #0933ec;
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 2px;
+    cursor: pointer;
+}
+
+/* ссылки */
+.podmenu a {
+    text-decoration: none;
+    color: black;
+}
+
+.podmenu:hover {
+    background: rgba(17, 230, 10, 0.2);
+}
+
+/* Анимация появления сверху вниз */
+@keyframes showText {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="accordion">
+
+    <div class="item">
+        <input type="radio" name="acc" id="a1">
+        <label for="a1">🔍 FindFace CIBR</label>
+
+        <div class="content">
+            <div class="podmenu">Пункт 1</div>
+
+            <div class="podmenu">
+                <a href="http://10.30.3.202/#/search" target="_blank">
+                    FindFace CIBR Google
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="item">
+        <input type="radio" name="acc" id="a2">
+        <label for="a2">🗃️ База данных</label>
+
+        <div class="content">
+            <div class="podmenu">Контент 1</div>
+            <div class="podmenu">Контент 2</div>
+            <div class="podmenu">
+                <a href="https://google.com" target="_blank">
+                    Открыть Google
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="item">
+        <input type="radio" name="acc" id="a3">
+        <label for="a3">Раздел 3</label>
+
+        <div class="content">
+            <div class="podmenu">Контент третьего блока</div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
